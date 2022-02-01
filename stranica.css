@@ -7,7 +7,7 @@ body, html {
 
 header {
     /*background:  url("unnamed.png")  no-repeat;*/
-    content: url("unnamed_min.png");
+    content: url("unnamed.png");
     position: static;
     background-size: cover;
     width: 100%;
