@@ -23,13 +23,7 @@ header {
 
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  nav.stick {
 
-      flex-direction: column;
-  }
-}
 
 nav.stick {
     display:flex;
@@ -43,7 +37,13 @@ nav.stick {
     font-size: 20px;
     outline: 0px;
 }
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  nav.stick {
 
+      flex-direction: column;
+  }
+}
 /*
 table, tr {
     width: 100%;
