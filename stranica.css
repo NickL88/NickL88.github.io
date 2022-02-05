@@ -44,6 +44,13 @@ nav.stick {
       flex-direction: column;
   }
 }
+@media only screen and (min-width: 768px) {
+  /* For mobile phones: */
+  nav.stick {
+
+      flex-direction: row;
+  }
+}
 /*
 table, tr {
     width: 100%;
