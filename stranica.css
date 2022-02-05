@@ -20,7 +20,6 @@ header {
     background-origin: border-box;
     background-clip: border-box;
     margin: 0px;
-
 }
 
 
@@ -37,20 +36,7 @@ nav.stick {
     font-size: 20px;
     outline: 0px;
 }
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  nav.stick {
 
-      flex-direction: column;
-  }
-}
-@media only screen and (min-width: 768px) {
-  /* For mobile phones: */
-  nav.stick {
-
-      flex-direction: row;
-  }
-}
 /*
 table, tr {
     width: 100%;
@@ -81,3 +67,25 @@ button {
 
 button:hover {
     background-color: blue;
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  nav.stick {
+
+      flex-direction: column;
+      height: 100%;
+  }
+
+  button {
+  height: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* For mobile phones: */
+  nav.stick {
+
+      flex-direction: row;
+  }
+}
