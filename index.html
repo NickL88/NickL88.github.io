@@ -15,29 +15,77 @@
 
         <nav class="stick">
 
-<button onclick="otvori('Domaća',this)">
+<button onclick="otvori(event, 'domaca')">
             Domaća
         </button>
-<button onclick="otvori('O nama',this)">
+<button onclick="otvori(event, 'onama')">
             O nama
         </button>
-<button onclick="otvori('Pišite nam',this)">
+<button onclick="otvori(event, 'pisitenam')">
             Pišite nam
         </button>
         </button>
-<button onclick="otvori('Slovanska beseda',this)">
+<button onclick="otvori(event,'slovanskabeseda')">
             Slovanska beseda 
         </button>
         </button>
-<button onclick="otvori('Popis knjiga',this)">
+<button onclick="otvori(event, 'popisknjiga')">
             Popis knjiga
         </button>
         </button>
-<button onclick="otvori('Uplata na račun',this)">
+<button onclick="otvori(event, 'uplatanaracun')">
             Uplata na račun
         </button>
+</nav>
 
-        </nav>
+<div id="domaca" class="sadrzaj">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="onama" class="sadrzaj">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="pisitenam" class="sadrzaj">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<div id="slovanskabeseda" class="sadrzaj">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="popisknjiga" class="sadrzaj">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="uplatanaracun" class="sadrzaj">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+ 
+
+<script>
+function otvori(evt, cityName) {
+  var i, sadrzaj, tablinks;
+  sadrzaj = document.getElementsByClassName("sadrzaj");
+  for (i = 0; i < sadrzaj.length; i++) {
+    sadrzaj[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+       
 
         
         <div class="sadrzaj">
