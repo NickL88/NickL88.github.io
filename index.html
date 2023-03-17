@@ -70,19 +70,28 @@
  
 
 <script>
+var x = window.matchMedia("(max-width: 700px)")
+x.addListener(otvori)
 function otvori(evt, cityName) {
-  var i, sadrzaj, tablinks;
-  sadrzaj = document.getElementsByClassName("sadrzaj");
   for (i = 0; i < sadrzaj.length; i++) {
     sadrzaj[i].style.display = "none";
   }
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    tablinks[i].className = tablinks[i].className.replace("active", "");
   }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+  izbor=document.getElementById(cityName);
+  dogadjaj=evt.currentTarget;
+  izbor.style.display = "block";
+if(x.matches){
+  dogadjaj.insertAdjacentElement("afterend", izbor);} else
+{
+
+  dogadjaj.className += "active";
 }
+}
+  var i, sadrzaj, tablinks;
+  sadrzaj = document.getElementsByClassName("sadrzaj");
 </script>
 
        
