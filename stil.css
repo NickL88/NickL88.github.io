@@ -96,7 +96,8 @@ span:hover{color:rgb(40, 187, 255);}
 }
 
 
-@media only screen and (min-width:30cm){
+@media only screen and (min-width:30cm),(max-height:10cm){
+
 
     .nav1{
         flex-direction: row;
@@ -104,3 +105,10 @@ span:hover{color:rgb(40, 187, 255);}
     }
     
 }
+
+
+    @media only screen and (max-height:10cm){
+        .nav1 span{
+            font-size: 12px;
+        }
+    }
