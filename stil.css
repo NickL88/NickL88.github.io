@@ -84,7 +84,7 @@ span:hover{color:rgb(40, 187, 255);}
 
 @media only screen and (max-width:25cm){
     .nav1{
-        top:3cm;
+        top:12vh;
         flex-direction: column;
         text-align:bottom;
     }
