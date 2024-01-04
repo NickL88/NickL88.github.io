@@ -1,0 +1,83 @@
+
+:root{
+    --rub:10vh
+
+}
+
+body{
+    padding:0;
+    margin:0;
+    background-color: white;
+}
+
+.body{
+    border:0;
+    margin:0;
+    position:fixed;
+    width:100%;
+    height:100%;
+    /*background-color: rgb(0, 0, 50);*/
+    background-image: linear-gradient(to right, rgb(0,0,30), rgb(180,0,0));
+}
+
+
+
+
+
+.main{
+    background-image: url(profile.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 15vw;
+    background-position: top 15vh left 15vh;
+    box-sizing: border-box;
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding:calc(2 * var(--rub)) calc(4 * var(--rub));
+    background-color: white;
+    width:calc(100vw - var(--rub));
+    height:calc(100vh - var(--rub));
+    border-top-left-radius: 25vmin;
+    z-index: 0;
+    text-align:justify;
+    overflow: scroll;
+}
+
+.nav1{
+    display:flex;
+    flex-direction:row;
+    position: fixed;
+    justify-content: center;
+    align-content:center;
+    align-items:center;
+    z-index: 5;
+    /*background-image: linear-gradient(to right, red, blue);*/
+    /*background-color: rgb(6, 0, 90);*/
+    top:0;
+    height:var(--rub);
+    width:100vw;
+    color: white;
+}
+
+
+.nav1 span{
+    text-align: bottom;
+    font-size:3vmin;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: palegoldenrod;
+}
+
+.nav1 span:hover{cursor:pointer;}
+
+span {padding: 2vh;}
+span:hover{color:rgb(40, 187, 255);}
+
+.nav2{
+
+}
+
+#forma{
+    position:relative;
+    top:0;
+}
