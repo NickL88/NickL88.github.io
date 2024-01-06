@@ -31,13 +31,15 @@ body{
     background-size: 15vw;
     background-position: top 15vh left 15vh;
     box-sizing: border-box;
+    text-align: justify;
     position:absolute;
     bottom:0;
     right:0;
-    padding:calc(2 * var(--rub)) calc(4 * var(--rub));
+    padding:calc(2 * var(--rub)) calc(1 * var(--rub));
     background-color: white;
     width:calc(100vw - var(--rub));
     height:90vh;
+    min-height: 0;
     border-top-left-radius: 25vmin;
     z-index: 0;
     overflow: scroll;
@@ -55,6 +57,7 @@ body{
     /*background-color: rgb(6, 0, 90);*/
     top:0;
     height:10vh;
+    min-height: 0;
     width:100vw;
     color: white;
 }
@@ -90,6 +93,7 @@ span:hover{color:rgb(40, 187, 255);}
     }
     .main{
         height:65vh;
+        min-height: 0;
     }
 
     
