@@ -21,7 +21,13 @@ body{
 }
 
 
-
+.transparent{
+    position:fixed;
+    margin:0;
+    border:0;
+    height:20vh;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), white;
+}
 
 
 .main{
