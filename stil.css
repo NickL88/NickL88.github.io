@@ -100,7 +100,7 @@ body{
     min-height: 0;
     width:100vw;
     color: white;
-    background-color: green;
+    /*background-color: green;*/
 }
 
 
@@ -113,7 +113,7 @@ body{
     vertical-align: middle;
     color: palegoldenrod;
     /*padding:1vh;*/
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 
 .nav1 li:hover{
@@ -127,7 +127,7 @@ body{
     top:0vh;
     height:inherit;
     width:70vw;
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
     justify-content: space-around;
     align-content: space-around;
     align-items: center;
@@ -158,7 +158,7 @@ body{
 
 
     .main{
-        height:55vh;
+        height:65vh;
         min-height: 0;
     }
 
