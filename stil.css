@@ -138,18 +138,19 @@ li:hover{color:rgb(40, 187, 255);}
 }
 
 
-@media only screen and (max-width:25cm){
+@media only screen and (max-width:25cm) and (orientation:portrait){
     .nav1{
         vertical-align:bottom;
         top:0;
         height:fit-content;
+        height:35vh;
     }
     .nav1 ul{
         flex-direction: column;
         text-align:bottom;
     }
     .main{
-        height:45vh;
+        height:65vh;
         min-height: 0;
     }
 
