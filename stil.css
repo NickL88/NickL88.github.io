@@ -52,6 +52,7 @@ body{
     background-color: transparent;
     shape-outside:circle(10vw) padding-box;
     shape-margin:10px;
+    object-fit: contain;
 
 }
 
@@ -105,7 +106,7 @@ body{
 
 
 .nav1 li{
-    height:100%;
+    height:fit-content;
     width:fit-content;
     text-align: center;
     font-size:3vh;
@@ -165,20 +166,26 @@ body{
     
 }
 
-/*
-@media only screen and (min-width:30cm),(max-height:10cm){
+
+@media only screen and (orientation:landscape) and(max-height:7cm){
+
+    .nav1{
+        height:25vh;
+    }
 
 
     ul{
-        /*min-height:10vh;
-        position:fixed;
+        /*min-height:10vh;*/
         top:10vh;
         flex-direction: row;
-    text-align:bottom;
+    }
+
+    .main{
+        height:10vh;
     }
     
 }
-
+/*
 
     @media only screen and (max-height:10cm){
         .nav1 li{
