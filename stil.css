@@ -67,7 +67,7 @@ body{
     padding:10vh 5vw;
     background-color: white;
     width:90vw;
-    height:92vh;
+    height:50vh;
     /*min-height: 0;*/
     border-top-left-radius: 25vmin;
     z-index: 0;
@@ -167,7 +167,7 @@ body{
 }
 
 
-@media only screen and (orientation:landscape) and(max-height:7cm){
+@media only screen and (orientation:landscape) and(max-height:10cm){
 
     .nav1{
         height:25vh;
