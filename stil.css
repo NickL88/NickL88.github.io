@@ -52,7 +52,6 @@ body {
     shape-outside: circle(10vw) padding-box;
     shape-margin: 10px;
     object-fit: contain;
-
 }
 
 
@@ -68,16 +67,77 @@ body {
     width: 90vw;
     height: 90vh;
     /*min-height: 0;*/
-    border-top-left-radius: 25vmin;
+    /*border-top-left-radius: 25vmin;*/
     z-index: 0;
     overflow-y: scroll;
-    clip-path: polygon(0vh 100vh, 100vw 100vh, 100vw 0vh, 40vw 5vh, 25vmin 0vh, 0vh 0vh);
+    /*clip-path: polygon(
+        0vh 100vh,
+        100vw 100vh,
+        100vw 0vh, 
+        40vw 5vh,
+        25vmin 0vh,
+        0vh 0vh);*/
+
+    clip-path: polygon(0vh 100vh,
+            100vw 100vh,
+            100vw 0vh,
+            100.000vw 0.003vh,
+            86.851vw 0.567vh,
+            75.431vw 1.131vh,
+            65.513vw 1.695vh,
+            56.899vw 2.259vh,
+            49.417vw 2.823vh,
+            42.919vw 3.387vh,
+            37.276vw 3.951vh,
+            32.375vw 4.515vh,
+            28.118vw 5.078vh,
+            24.421vw 5.642vh,
+            21.210vw 6.206vh,
+            18.421vw 6.770vh,
+            15.999vw 7.334vh,
+            13.895vw 7.898vh,
+            12.068vw 8.462vh,
+            10.481vw 9.026vh,
+            9.103vw 9.590vh,
+            7.906vw 10.153vh,
+            6.866vw 10.717vh,
+            5.964vw 11.281vh,
+            5.179vw 11.845vh,
+            4.498vw 12.409vh,
+            3.907vw 12.973vh,
+            3.393vw 13.537vh,
+            2.947vw 14.101vh,
+            2.560vw 14.665vh,
+            2.223vw 15.229vh,
+            1.931vw 15.792vh,
+            1.677vw 16.356vh,
+            1.456vw 16.920vh,
+            1.265vw 17.484vh,
+            1.099vw 18.048vh,
+            0.954vw 18.612vh,
+            0.829vw 19.176vh,
+            0.720vw 19.740vh,
+            0.625vw 20.304vh,
+            0.543vw 20.868vh,
+            0.471vw 21.431vh,
+            0.409vw 21.995vh,
+            0.356vw 22.559vh,
+            0.309vw 23.123vh,
+            0.268vw 23.687vh,
+            0.233vw 24.251vh,
+            0.202vw 24.815vh,
+            0.176vw 25.379vh,
+            0.153vw 25.943vh,
+            0.133vw 26.507vh,
+            0.115vw 27.070vh,
+            0.100vw 27.634vh,
+            0vh 100vh);
+            p {
+                text-align: justify;
+                padding: 1vh 1vw;
+            }
 }
 
-.main p {
-    text-align: justify;
-    padding: 1vh 1vw;
-}
 
 
 .text {
@@ -100,15 +160,16 @@ nav {
     min-height: 0;
     width: 100vw;
     color: white;
+
     /*background-color: green;*/
-
-
     li {
         height: fit-content;
         width: fit-content;
         text-align: center;
         font-size: 3vh;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: serif;
+        /*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
+        font-weight: 900;
         vertical-align: middle;
         color: palegoldenrod;
         padding: 2vh;
@@ -136,8 +197,15 @@ nav {
         list-style-type: none;
         z-index: 10;
     }
-
 }
+
+
+
+
+
+
+
+
 
 #forma {
     position: relative;
@@ -187,7 +255,7 @@ nav {
 /*
 
     @media only screen and (max-height:10cm){
-        .nav1 li{
+        nav li{
             font-size: 12px;
         }
     }*/
