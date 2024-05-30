@@ -11,14 +11,26 @@
     <div class="body">
     <nav>
         <ul>
-            <li>Strojarstvo, matematika i fizika</li>
+            <li>Strojarstvo, (matematika i fizika)</li>
             <li>Elektrotehnika i računarstvo</li>
             <li>3D-modeliranje i nacrti</li>
-            <li>Osobni interesi</li>
+            <li>Moja priča</li>
             <li>Kontakt</li>
         </ul>
     </nav>
     <div class="nav2">
+        <script>
+            let varibale = document.querySelectorAll("ul *");
+            let arr=[];
+            [...varibale].forEach(function (elem, index){
+                arr[index]=elem.offsetHeight;
+
+            });
+            
+            
+
+            console.log([...arr]);
+        </script>
 
     </div>
 
@@ -64,10 +76,6 @@
 
    </div>
 
-   <script src="kod.js">
-
-    
-   </script>
 
     </div>
 

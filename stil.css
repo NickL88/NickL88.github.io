@@ -177,6 +177,7 @@ nav {
 
         &:hover {
             cursor: pointer;
+            font-size: 3.1vh;
             color: rgb(40, 187, 255);
         }
     }
@@ -216,6 +217,7 @@ nav {
 
 @media only screen and (orientation:portrait) {
     nav {
+        top:5vh;
         height: 35vh;
 
         ul {
