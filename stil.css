@@ -1,5 +1,6 @@
 :root {
-    --rub: 5vw
+    --rub: 5vw;
+    scrollbar-color: green;
 }
 
 * {
@@ -12,7 +13,7 @@ body {
     min-width: 0;
     border: 0;
     background-color: white;
-    scrollbar-color: green;
+    /*scrollbar-color: green;*/
 }
 
 .body {
@@ -56,7 +57,7 @@ body {
 
 
 .main {
-    scrollbar-color: green;
+    /*scrollbar-color: green;*/
     box-sizing: border-box;
     /*text-align: justify;*/
     position: absolute;
@@ -132,10 +133,11 @@ body {
             0.115vw 27.070vh,
             0.100vw 27.634vh,
             0vh 100vh);
-            p {
-                text-align: justify;
-                padding: 1vh 1vw;
-            }
+
+    p {
+        text-align: justify;
+        padding: 1vh 1vw;
+    }
 }
 
 
@@ -161,27 +163,6 @@ nav {
     width: 100vw;
     color: white;
 
-    /*background-color: green;*/
-    li {
-        height: fit-content;
-        width: fit-content;
-        text-align: center;
-        font-size: 3vh;
-        font-family: serif;
-        /*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
-        font-weight: 900;
-        vertical-align: middle;
-        color: palegoldenrod;
-        padding: 2vh;
-        /*background-color: yellow;*/
-
-        &:hover {
-            cursor: pointer;
-            font-size: 3.1vh;
-            color: rgb(40, 187, 255);
-        }
-    }
-
     ul {
         display: flex;
         position: static;
@@ -197,7 +178,29 @@ nav {
         list-style: none;
         list-style-type: none;
         z-index: 10;
+
+        /*background-color: green;*/
+        li {
+            height: fit-content;
+            min-width: 20vw;
+            text-align: center;
+            font-size: 3vh;
+            font-family: serif;
+            /*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
+            font-weight: 900;
+            vertical-align: middle;
+            color: palegoldenrod;
+            padding: 2vh;
+            /*background-color: yellow;*/
+
+            &:hover {
+                cursor: pointer;
+                font-size: 3.1vh;
+                color: rgb(40, 187, 255);
+            }
+        }
     }
+
 }
 
 
@@ -217,11 +220,21 @@ nav {
 
 @media only screen and (orientation:portrait) {
     nav {
-        top:5vh;
-        height: 35vh;
+        top: 0vh;
+        left: 0;
+        height: fit-content;
+        align-content: flex-start;
+        align-items: flex-start;
+        justify-content: flex-start;
 
         ul {
             flex-direction: column;
+            width:100vw;
+
+            li {
+                width: inherit;
+                text-align:start;
+            }
         }
     }
 
@@ -235,7 +248,7 @@ nav {
 }
 
 
-@media only screen and (orientation:landscape) and(max-height:10cm) {
+@media only screen and (orientation:landscape) and (max-height:10cm) {
 
     nav {
         height: 25vh;
