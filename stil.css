@@ -251,18 +251,18 @@ nav {
 @media only screen and (orientation:landscape) and (max-height:10cm) {
 
     nav {
-        height: 25vh;
+        height: 10vh;
     }
 
 
     ul {
         /*min-height:10vh;*/
-        top: 10vh;
+        top: 0vh;
         flex-direction: row;
     }
 
     .main {
-        height: 10vh;
+        height: 90vh;
     }
 
 }
