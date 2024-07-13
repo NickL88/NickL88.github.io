@@ -142,8 +142,22 @@ body {
 
 
 
-.text {
+#content {
     min-height: 0vh;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+.vl{
+    background-color: black;
+    width:1px;
+}
+
+
+.column{
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -184,7 +198,7 @@ nav {
             height: fit-content;
             min-width: 20vw;
             text-align: center;
-            font-size: 3vh;
+            font-size: 1.8vw;
             font-family: serif;
             /*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
             font-weight: 900;
@@ -195,7 +209,7 @@ nav {
 
             &:hover {
                 cursor: pointer;
-                font-size: 3.1vh;
+                font-size: 1.9vw;
                 color: rgb(40, 187, 255);
             }
         }
@@ -234,6 +248,11 @@ nav {
             li {
                 width: inherit;
                 text-align:start;
+                font-size: 3vh;
+                &:hover{
+                    font-size: 3.1vh;
+
+                }
             }
         }
     }
