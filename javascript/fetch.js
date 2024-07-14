@@ -16,19 +16,24 @@ async function fetchlistenerInput(
     //data = input(data);
     options.body = JSON.stringify(data);
   }*/
-  let response_promise = fetch(file, options);
-  //console.log(response_promise);
-  //if (options.method != "DELETE") {
-    response_promise.then(
+  try {
+    let response_promise = await fetch(file, options);
+    //console.log(response_promise);
+    //if (options.method != "DELETE") {
+    document.getElementById('content').innerHTML = await response_promise.text();
+  } catch (err) {
+    console.log('Fetch error:' + err);
+  }
+   /* response_promise.then(
       response => response.text().then(
         html => {
           //console.log(html);
           document.getElementById('content').innerHTML = html;
           //output(responseJson, id);
-        }));
+        }));*/
   //}
 }
 
 
 
-export {server, fetchlistenerInput};
+export { server, fetchlistenerInput };
