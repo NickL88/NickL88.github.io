@@ -58,6 +58,41 @@ body {
 }
 
 
+menu {
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    width: 5vw;
+    height: 5vh;
+    background-image: linear-gradient(to right, rgb(0, 0, 30), rgb(180, 0, 0));
+    z-index: 100;
+
+    &:hover {
+        width: fit-content;
+        height: fit-content;
+
+        * {
+            color: bisque;
+            font-size: 5rem;
+            z-index: 200;
+            display: block;
+
+        }
+
+        li:hover {
+            color: aqua;
+
+        }
+
+        flex-direction:column;
+    }
+
+    * {
+        display: none;
+    }
+}
+
+
 main {
     /*scrollbar-color: green;*/
     box-sizing: border-box;
@@ -242,10 +277,8 @@ nav {
 
 @media only screen and (orientation:portrait) {
 
-    main{
-        width:99vw;
-    }
     nav {
+        display: none;
         top: 0vh;
         left: 0;
         /*height: fit-content;*/
@@ -273,7 +306,12 @@ nav {
 
     main {
         height: 55vh;
+        width: 99vw;
         min-height: 0;
+
+        * {
+            display: none;
+        }
     }
 
 
