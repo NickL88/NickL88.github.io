@@ -1,4 +1,4 @@
-import {server,fetchlistenerInput} from "./fetch.js";
+import {fetchlistenerInput} from "./fetch.js";
 
 
 function prikaz(event){
@@ -11,13 +11,13 @@ function prikaz(event){
 
   switch(id){
     case 0:
-      fetchlistenerInput('./sites/strojarstvo.html');
+      fetchlistenerInput('./sites/strojarstvo/strojarstvo.html');
       break;
     case 1:
-      fetchlistenerInput('./sites/3dmodeliranje.html');
+      fetchlistenerInput('./sites/3dmodeliranje/3dmodeliranje.html');
       break;
       case 2:
-      fetchlistenerInput('./sites/programiranje.html');
+      fetchlistenerInput('./sites/programiranje/programiranje.html');
       break;
   }
 

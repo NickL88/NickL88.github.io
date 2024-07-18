@@ -17,6 +17,8 @@ body {
 }
 
 .body {
+    display: flex;
+    flex-direction: column;
     border: 0;
     position: fixed;
     width: 100%;
@@ -144,20 +146,26 @@ body {
 
 #content {
     min-height: 0vh;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.vl{
+.vl {
     background-color: black;
-    width:1px;
+    width: 1px;
 }
 
 
-.column{
+.column {
     display: flex;
     flex-direction: column;
+
+    ul>li {
+        position: relative;
+        left: 20px;
+    }
+
 }
 
 nav {
@@ -171,7 +179,7 @@ nav {
     /*background-image: linear-gradient(to right, red, blue);*/
     /*background-color: rgb(6, 0, 90);*/
     top: 0vh;
-    height: 10vh;
+    /*height: 10vh;*/
     max-height: 80vh;
     min-height: 0;
     width: 100vw;
@@ -236,20 +244,21 @@ nav {
     nav {
         top: 0vh;
         left: 0;
-        height: fit-content;
+        /*height: fit-content;*/
         align-content: flex-start;
         align-items: flex-start;
         justify-content: flex-start;
 
         ul {
             flex-direction: column;
-            width:100vw;
+            width: 100vw;
 
             li {
                 width: inherit;
-                text-align:start;
+                text-align: start;
                 font-size: 3vh;
-                &:hover{
+
+                &:hover {
                     font-size: 3.1vh;
 
                 }
