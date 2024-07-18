@@ -58,7 +58,7 @@ body {
 }
 
 
-.main {
+main {
     /*scrollbar-color: green;*/
     box-sizing: border-box;
     /*text-align: justify;*/
@@ -241,6 +241,10 @@ nav {
 
 
 @media only screen and (orientation:portrait) {
+
+    main{
+        width:99vw;
+    }
     nav {
         top: 0vh;
         left: 0;
@@ -267,7 +271,7 @@ nav {
     }
 
 
-    .main {
+    main {
         height: 55vh;
         min-height: 0;
     }
@@ -289,7 +293,7 @@ nav {
         flex-direction: row;
     }
 
-    .main {
+    main {
         top: 20vh;
     }
 
