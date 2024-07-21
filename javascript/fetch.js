@@ -2,7 +2,7 @@
 
 async function fetchlistenerInput(
   file,
-  //data = {},
+  element,
   options = {
     method: "GET",
     headers: { "Content-Type": "text/html" }
@@ -15,12 +15,15 @@ async function fetchlistenerInput(
   }*/
   try {
     let response_promise = await fetch(file, options);
-    document.getElementById('content').innerHTML = await response_promise.text();
+    element.innerHTML = await response_promise.text();
+    //document.getElementById('content').innerHTML = 
   } catch (err) {
     console.log('Fetch error:' + err);
   }
 
 }
+
+
 
 
 

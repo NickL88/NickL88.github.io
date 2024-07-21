@@ -90,6 +90,19 @@ menu {
     * {
         display: none;
     }
+
+
+    &>ul>li:first-of-type {
+        &>ul{
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+        }
+
+    }
+    &>ul>li:last-of-type {
+
+    }
 }
 
 
