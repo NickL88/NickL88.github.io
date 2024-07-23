@@ -311,6 +311,10 @@ nav {
 
 @media only screen and (orientation:portrait) {
 
+    #logo {
+        background-size:100vw 50vh;
+    }
+
     nav {
         display: none;
         top: 0vh;
