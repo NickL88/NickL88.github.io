@@ -5,6 +5,13 @@ import { fetchlistenerInput } from "./fetch.js";
 function prikaz(event) {
   let level;
   const menu=document.getElementById("menu");
+  let div = document.getElementById("sadrzaj");
+  console.log(div);
+  if (div != null){
+    console.log(div);
+    div.innerHTML= "";
+    document.getElementById("sadrzaj").remove();
+  }
   if ([...event.currentTarget.querySelectorAll("nav li")].some(function (comp) {
     return comp == event.target;
   })) {
@@ -44,8 +51,11 @@ function prikaz(event) {
         fetchlistenerInput('./menu/programiranje/programiranje.html', menu);
         break;
       case "meha_flui":
-        let content = menu.createElement("div");
-        fetchlistenerInput('./sites/strojarstvo/programiranje.html', content);
+        let content = document.createElement("div");
+        content.id='sadrzaj';
+        content.style.backgroundColor="white";
+        fetchlistenerInput('./sites/strojarstvo/mehanika_fluida.html', content);
+        document.querySelector("#meha_flui").after(content);
     }
 
   }
@@ -58,7 +68,6 @@ function prikaz(event) {
 
 
 function start() {
-  console.log("bok");
   fetchlistenerInput('./start.html', document.getElementById("menu"));
 
 }
