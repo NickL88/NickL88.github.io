@@ -43,6 +43,9 @@ function prikaz(event) {
       case "prog":
         fetchlistenerInput('./menu/programiranje/programiranje.html', menu);
         break;
+      case "meha_flui":
+        let content = menu.createElement("div");
+        fetchlistenerInput('./sites/strojarstvo/programiranje.html', content);
     }
 
   }

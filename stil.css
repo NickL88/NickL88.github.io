@@ -17,6 +17,17 @@ body {
     /*scrollbar-color: green;*/
 }
 
+#logo{
+    background-image: url('./photo/LogarithmN.png');
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-attachment: fixed;
+    left:0;
+    top:0;
+    height:100vh;
+    width:100vw;
+}
+
 .body {
     display: flex;
     flex-direction: column;
@@ -69,8 +80,12 @@ menu {
     z-index: 100;
 
     &:hover {
-        width: fit-content;
-        height: fit-content;
+        /*width: fit-content;
+        height: fit-content;*/
+        width: 100vw;
+        height: 100vh;
+        top:0vh;
+        right:0vw;
 
         * {
             color: bisque;
