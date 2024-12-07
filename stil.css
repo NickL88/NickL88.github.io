@@ -136,6 +136,12 @@ main {
     right: 0vh;
     padding: 10vh 5vw;
     background-color: white;
+    background-image: url("./photo/Background.png");
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-blend-mode:overlay;
+    background-attachment: fixed;
+    background-size: cover;
     width: 90vw;
     height: 90vh;
     /*min-height: 0;*/
