@@ -117,18 +117,20 @@ function play(event) {
     const crta = document.getElementById("crta");
     //event.target.parentElement.style.backgroundColor="red";
     id = setInterval(frame, 1000);
-    let pos1 = crta.points;
     let pos = 0;
     console.log(pos);
     //frame();
     const svg = document.getElementById("svg");
     function frame() {
+      pos=pos-20;
+      let pos1 = crta.points.getItem(crta.points.length-1);
+      let posx=pos1.x;
+      let posy=pos1.y;
       console.log("pozicija"+pos1);
-        pos=pos-20;
         event.target.parentElement.style.left = pos +'px'; //element sliding
         const tocka = svg.createSVGPoint();
-        tocka.x=crta.points.getItem(crta.points.length-1).x+pos;
-        tocka.y=crta.points.getItem(crta.points.length-1).y;
+        tocka.x=posx;
+        tocka.y=posy;
         crta.points.appendItem(tocka);
         //crta.points.baseVal.value =pos1-pos;
         //crta.x1.baseVal.Value=pos;
