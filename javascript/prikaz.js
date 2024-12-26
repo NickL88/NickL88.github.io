@@ -98,7 +98,7 @@ function vodilja(event) {
     crta.points.appendItem(tocka);
     //crta.points += event.offsetX+","+event.offsetY;
     //console.log(crta.points.getItem(0));
-    console.log(crta.points);
+    console.log(crta.points.getItem(crta.points.length-1).x);
   }
 
 }
@@ -116,8 +116,9 @@ function play(event) {
     console.log("abcd");
     const crta = document.getElementById("crta");
     //event.target.parentElement.style.backgroundColor="red";
-    id = setInterval(frame, 1000);
     let pos = 0;
+      let pos0 = crta.points.getItem(crta.points.length-1);
+      let posx0=pos0.x;
     console.log(pos);
     //frame();
     const svg = document.getElementById("svg");
@@ -129,12 +130,16 @@ function play(event) {
       console.log("pozicija"+pos1);
         event.target.parentElement.style.left = pos +'px'; //element sliding
         const tocka = svg.createSVGPoint();
-        tocka.x=posx;
+        tocka.x=posx0-pos;
+        console.log(tocka.x+"="+posx0+pos);
         tocka.y=posy;
         crta.points.appendItem(tocka);
         //crta.points.baseVal.value =pos1-pos;
         //crta.x1.baseVal.Value=pos;
     }
+
+
+    id = setInterval(frame, 1000);
   }
 }
 
