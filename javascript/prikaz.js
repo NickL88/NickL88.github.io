@@ -88,62 +88,76 @@ function vodilja(event) {
     return comp == event.target;
   })) {
     const crta = document.getElementById("crta");
-    const rect =crta.getBoundingClientRect();
+    //const rect = crta.getBoundingClientRect();
     console.log(event.clientX);
     //event.target.style.backgroundColor="green";
     const svg = document.getElementById("svg");
     const tocka = svg.createSVGPoint();
-    tocka.x=event.offsetX;
-    tocka.y=event.offsetY;
+    tocka.x = event.offsetX;
+    tocka.y = event.offsetY;
     crta.points.appendItem(tocka);
     //crta.points += event.offsetX+","+event.offsetY;
     //console.log(crta.points.getItem(0));
-    console.log(crta.points.getItem(crta.points.length-1).x);
+    console.log(crta.points.getItem(crta.points.length - 1).x);
   }
 
 }
 
-function play1() {
-
-}
 
 var id;
+var check = false;
 
 function play(event) {
   if ([...event.currentTarget.querySelectorAll("#crta")].some(function (comp) {
     return comp == event.target;
   })) {
-    console.log("abcd");
-    const crta = document.getElementById("crta");
-    //event.target.parentElement.style.backgroundColor="red";
-    let pos = 0;
-      let pos0 = crta.points.getItem(crta.points.length-1);
-      let posx0=pos0.x;
-    console.log(pos);
-    //frame();
-    const svg = document.getElementById("svg");
-    function frame() {
-      pos=pos-20;
-      let pos1 = crta.points.getItem(crta.points.length-1);
-      let posx=pos1.x;
-      let posy=pos1.y;
-      console.log("pozicija"+pos1);
-        event.target.parentElement.style.left = pos +'px'; //element sliding
+    if (!check) {
+      console.log("abcd");
+      const crta = document.getElementById("crta");
+      //event.target.parentElement.style.backgroundColor="red";
+      let pos = 0; //trenutak 0
+      let pos0 = crta.points.getItem(crta.points.length - 1); //dohvacanje zadnje tocke polyline
+      let posx0 = pos0.x; //dohvacanje x koordinate zadnje tocke polyline
+      console.log(posx0);
+      //frame();
+      const svg = document.getElementById("svg");
+
+      function frame() {
+        pos = pos - 20;
+        let pos1 = crta.points.getItem(crta.points.length - 1);
+        let posx = pos1.x;
+        let posy = pos1.y;
+        console.log("pozicija" + pos1);
+        event.target.parentElement.style.left = pos + 'px'; //element sliding
+        console.log(event.target.parentElement.getBoundingClientRect().width);
+        let width = event.target.parentElement.getBoundingClientRect().width+20;
+        console.log(width);
+        event.target.parentElement.style.width= width + 'px';
         const tocka = svg.createSVGPoint();
-        tocka.x=posx0-pos;
-        console.log(tocka.x+"="+posx0+pos);
-        tocka.y=posy;
+        tocka.x = posx + 20;
+        console.log(tocka.x + "=" + posx0 + pos);
+        tocka.y = posy;
         crta.points.appendItem(tocka);
+        console.log("posx"+posx+"posx0"+posx0);
         //crta.points.baseVal.value =pos1-pos;
         //crta.x1.baseVal.Value=pos;
+      }
+
+
+      id = setInterval(frame, 1000);
+      check=true;
+      return;
     }
-
-
-    id = setInterval(frame, 1000);
+    if (check){
+      clearInterval(id);
+      check=false;
+      return;
+    }
   }
+  //event.currentTarget.removeEventListener('click', play, false);
 }
 
 
 
 
-export { prikaz, start, vodilja,play};
+export { prikaz, start, vodilja, play };
