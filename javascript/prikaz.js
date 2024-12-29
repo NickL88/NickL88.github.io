@@ -87,6 +87,9 @@ function vodilja(event) {
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
   })) {
+    if (event.type==='touchmove'){
+      event=event.touches[0];
+    }
     const crta = document.getElementById("crta");
     //const rect = crta.getBoundingClientRect();
     console.log(event.clientX);
@@ -99,6 +102,20 @@ function vodilja(event) {
     //crta.points += event.offsetX+","+event.offsetY;
     //console.log(crta.points.getItem(0));
     console.log(crta.points.getItem(crta.points.length - 1).x);
+    const der = document.getElementById("der");
+    const deriv = document.getElementById("deriv");
+    const tocka_der=der.createSVGPoint();
+    //treba uvesti 0 kod uzimanja prve vrijednosti
+    //
+    const y2 = crta.points.getItem(crta.points.length-1).y;
+    const y1 = crta.points.getItem(crta.points.length-2).y;
+    const x2 = crta.points.getItem(crta.points.length-1).x;
+    const x1 = crta.points.getItem(crta.points.length-2).x;
+    const derivacija=(y2-y1)/(x2-x1);
+    console.log("derivacija:"+derivacija);
+    //tocka_der.y = (crta.points.getItem(crta.points.length-1).y-crta.points.getItem(crta.points.length-2).y)/(crta.points.getItem(crta.points.length-1).x-crta.points.getItem(crta.points.length-2).x);
+    tocka_der.x = (crta.points.getItem(crta.points.length-1).x - crta.points.getItem(crta.points.length-2).x)/2;
+    deriv.points.appendItem(tocka_der);
   }
 
 }
