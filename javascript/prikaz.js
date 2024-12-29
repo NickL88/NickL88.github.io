@@ -111,7 +111,7 @@ function vodilja(event) {
     const y1 = crta.points.getItem(crta.points.length-2).y;
     const x2 = crta.points.getItem(crta.points.length-1).x;
     const x1 = crta.points.getItem(crta.points.length-2).x;
-    const derivacija=(y2-y1)/(x2-x1);
+    tocka_der.y=(y2-y1)/(x2-x1);
     console.log("derivacija:"+derivacija);
     //tocka_der.y = (crta.points.getItem(crta.points.length-1).y-crta.points.getItem(crta.points.length-2).y)/(crta.points.getItem(crta.points.length-1).x-crta.points.getItem(crta.points.length-2).x);
     tocka_der.x = (crta.points.getItem(crta.points.length-1).x - crta.points.getItem(crta.points.length-2).x)/2;
