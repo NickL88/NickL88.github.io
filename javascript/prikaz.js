@@ -84,7 +84,7 @@ function start() {
 }
 
 function vodilja(event) {
-  if ([...event.currentTarget.querySelectorAll("svg")].some(function (comp) {
+  if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
   })) {
     const crta = document.getElementById("crta");

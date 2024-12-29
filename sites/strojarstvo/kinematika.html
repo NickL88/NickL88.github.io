@@ -12,24 +12,51 @@
 
 
   svg {
-    width:50vw;
-    height: 50vh;
+    width:20vw;
+    height: 20vh;
     top: 0%;
     left:0%;
     position:absolute;
+  }
+
+  #svg{
+    top:30%;
     background-color: blue;
+  }
+
+  #deriv{
+    top:0%;
+    background-color: lightblue;
+  }
+
+  #integral{
+    top:50%;
+    background-color: darkblue;
   }
 
   #crta {
     position:relative;
   }
+
+
   
 </style>
 
 <div id="graph">
 
+  <svg id="deriv">
+     <polyline class="crta" points="0, 0" style=" fill:none; stroke:red;stroke-width:2" />
+  </svg>
+
   <svg id="svg">
      <polyline id="crta" points="0, 0" style=" fill:none; stroke:red;stroke-width:2" />
   </svg>
+
+
+  <svg id="integral">
+     <polyline class="crta" points="0, 0" style=" fill:none; stroke:red;stroke-width:2" />
+  </svg>
+
+
 
 </div>
