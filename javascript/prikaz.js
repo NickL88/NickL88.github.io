@@ -90,6 +90,7 @@ var ycoord;
 function vodilja(event) {
   if (event.type === 'touchmove') {
     event = event.touches[0];
+    document.write("hello world");
   }
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
@@ -156,7 +157,7 @@ function play(event) {
       const int = document.getElementById("int");
       const deriv = document.getElementById("deriv");
       const integ = document.getElementById("integ");
-      const interval = 1;
+      const interval = 10;
 
       function frame() {
         pos = pos - interval;
