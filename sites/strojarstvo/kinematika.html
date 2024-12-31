@@ -24,18 +24,40 @@
     background-color: blue;
   }
 
-  #deriv{
+  #der1{
     top:0%;
     background-color: lightblue;
+    display:flex;
+    justify-content: center;
   }
 
-  #integral{
+  #int{
     top:50%;
     background-color: darkblue;
   }
 
   #crta {
+    top:50%;
     position:relative;
+  }
+
+
+
+  #crta  {
+    top:50%;
+    position:relative;
+    transform: translateY(50%);
+  }
+
+  #deriv{
+    position:relative;
+    transform: translateY(50%);
+  }
+
+
+  #integ{
+    position:relative;
+    transform: translateY(50%);
   }
 
 
@@ -44,17 +66,17 @@
 
 <div id="graph">
 
-  <svg id="der">
-     <polyline id="deriv" points="0, 0" style=" fill:none; stroke:red;stroke-width:2" />
+  <svg id="der1">
+     <polyline id="deriv"  style=" fill:none; stroke:red;stroke-width:2" />
   </svg>
 
   <svg id="svg">
-     <polyline id="crta" points="0, 0" style=" fill:none; stroke:red;stroke-width:2" />
+     <polyline id="crta"  style=" fill:none; stroke:red;stroke-width:2" />
   </svg>
 
 
-  <svg id="integral">
-     <polyline class="crta" points="0, 0" style=" fill:none; stroke:red;stroke-width:2" />
+  <svg id="int">
+     <polyline id="integ"  points = "0, 0" style=" fill:none; stroke:red;stroke-width:2" />
   </svg>
 
 

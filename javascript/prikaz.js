@@ -84,9 +84,9 @@ function start() {
 }
 
 function vodilja(event) {
-    if (event.type==='touchmove'){
-      event=event.touches[0];
-    }
+  if (event.type === 'touchmove') {
+    event = event.touches[0];
+  }
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
   })) {
@@ -99,23 +99,32 @@ function vodilja(event) {
     tocka.x = event.offsetX;
     tocka.y = event.offsetY;
     crta.points.appendItem(tocka);
+    tocka.y -=  svg.getBoundingClientRect().height/2;
     //crta.points += event.offsetX+","+event.offsetY;
     //console.log(crta.points.getItem(0));
+    console.log("linija:(" + tocka.x+","+ tocka.y + ")");
     console.log(crta.points.getItem(crta.points.length - 1).x);
-    const der = document.getElementById("der");
+    const der = document.getElementById("der1");
     const deriv = document.getElementById("deriv");
-    const tocka_der=der.createSVGPoint();
+    const tocka_der = der.createSVGPoint();
     //treba uvesti 0 kod uzimanja prve vrijednosti
     //
-    const y2 = crta.points.getItem(crta.points.length-1).y;
-    const y1 = crta.points.getItem(crta.points.length-2).y;
-    const x2 = crta.points.getItem(crta.points.length-1).x;
-    const x1 = crta.points.getItem(crta.points.length-2).x;
-    tocka_der.y=(y2-y1)/(x2-x1);
-    console.log("derivacija:"+derivacija);
+    const y2 = crta.points.getItem(crta.points.length - 1).y;
+    const y1 = crta.points.getItem(crta.points.length - 2).y;
+    const x2 = crta.points.getItem(crta.points.length - 1).x;
+    const x1 = crta.points.getItem(crta.points.length - 2).x;
+    tocka_der.y = (y2 - y1) / (x2 - x1);
     //tocka_der.y = (crta.points.getItem(crta.points.length-1).y-crta.points.getItem(crta.points.length-2).y)/(crta.points.getItem(crta.points.length-1).x-crta.points.getItem(crta.points.length-2).x);
-    tocka_der.x = (crta.points.getItem(crta.points.length-1).x - crta.points.getItem(crta.points.length-2).x)/2;
+    tocka_der.x = x1+(x2-x1)/ 2;
+    console.log("derivacija:(" + tocka_der.x+","+ tocka_der.y + ")");
     deriv.points.appendItem(tocka_der);
+    const int = document.getElementById("int");
+    const integ = document.getElementById("integ");
+    const tocka_int = int.createSVGPoint();
+    tocka_int.y =  integ.points.getItem(integ.points.length - 1).y + (y2 + y1)*(x2-x1)/2;
+    tocka_int.x = x1+(x2-x1)/2;
+    console.log("integracija:(" + tocka_int.x+","+ tocka_int.y + ")");
+    integ.points.appendItem(tocka_int);
   }
 
 }
@@ -147,27 +156,27 @@ function play(event) {
         console.log("pozicija" + pos1);
         event.target.parentElement.style.left = pos + 'px'; //element sliding
         console.log(event.target.parentElement.getBoundingClientRect().width);
-        let width = event.target.parentElement.getBoundingClientRect().width+20;
+        let width = event.target.parentElement.getBoundingClientRect().width + 20;
         console.log(width);
-        event.target.parentElement.style.width= width + 'px';
+        event.target.parentElement.style.width = width + 'px';
         const tocka = svg.createSVGPoint();
         tocka.x = posx + 20;
         console.log(tocka.x + "=" + posx0 + pos);
         tocka.y = posy;
         crta.points.appendItem(tocka);
-        console.log("posx"+posx+"posx0"+posx0);
+        console.log("posx" + posx + "posx0" + posx0);
         //crta.points.baseVal.value =pos1-pos;
         //crta.x1.baseVal.Value=pos;
       }
 
 
       id = setInterval(frame, 1000);
-      check=true;
+      check = true;
       return;
     }
-    if (check){
+    if (check) {
       clearInterval(id);
-      check=false;
+      check = false;
       return;
     }
   }
