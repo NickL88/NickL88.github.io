@@ -90,7 +90,6 @@ var ycoord;
 function vodilja(event) {
   if (event.type === 'touchmove') {
     event = event.touches[0];
-    document.write("hello world");
   }
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
