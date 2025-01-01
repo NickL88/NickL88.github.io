@@ -92,8 +92,9 @@ const koordinata = document.getElementById("testing");
 const rect = koordinata.getBoundingClientRect();
 //let offsetX=event.clientX - rect.left;
 //let offsetY=event.clientY - rect.top;
-let offsetX=event.offsetX;
-let offsetY=event.offsetY;
+let offsetX=event.touches[0].clientX -rect.left;
+let offsetY=event.touches[0].clientY -rect.top;
+console.log(event);
 
 koordinata.innerText="("+offsetX+','+offsetY+')';
 
