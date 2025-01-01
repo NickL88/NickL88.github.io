@@ -89,8 +89,13 @@ var ycoord;
 
 function prikaztouchmove(event) {
 const koordinata = document.getElementById("testing");
+const rect = koordinata.getBoundingClientRect();
+//let offsetX=event.clientX - rect.left;
+//let offsetY=event.clientY - rect.top;
+let offsetX=event.offsetX;
+let offsetY=event.offsetY;
 
-koordinata.innerText="("+event.touches[0].clientX+','+event.touches[0].clientY+')';
+koordinata.innerText="("+offsetX+','+offsetY+')';
 
 }
 
@@ -101,9 +106,7 @@ function vodilja(event) {
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
   })) {
-    const crta = document.getElementById("crta");
     //const rect = crta.getBoundingClientRect();
-    console.log(event.clientX);
     //event.target.style.backgroundColor="green";
     const svg = document.getElementById("svg");
     const tocka = svg.createSVGPoint();
