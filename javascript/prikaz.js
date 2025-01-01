@@ -90,7 +90,7 @@ var ycoord;
 function prikaztouchmove(event) {
 const koordinata = document.getElementById("testing");
 
-koordinata.innerText="("+event.clientX+','+event.clientY+')';
+koordinata.innerText="("+event.touches[0].clientX+','+event.touches[0].clientY+')';
 
 }
 
