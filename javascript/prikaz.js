@@ -87,6 +87,10 @@ function start() {
 var xcoord;
 var ycoord;
 
+function prikaztouchmove(event) {
+
+}
+
 function vodilja(event) {
   if (event.type === 'touchmove') {
     event = event.touches[0];
@@ -136,7 +140,7 @@ function vodilja(event) {
 
 var id;
 var check = false;
-
+var pos = 0;
 function play(event) {
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
@@ -145,7 +149,7 @@ function play(event) {
       console.log("abcd");
       const crta = document.getElementById("crta");
       //event.target.parentElement.style.backgroundColor="red";
-      let pos = 0; //trenutak 0
+      //let pos = 0; //trenutak 0
       //let pos0 = crta.points.getItem(crta.points.length - 1); //dohvacanje zadnje tocke polyline
       //let pos0 = crta.points.getItem(crta.points.length - 1); //dohvacanje zadnje tocke polyline
       //let posx0 = pos0.x; //dohvacanje x koordinate zadnje tocke polyline
@@ -164,9 +168,9 @@ function play(event) {
         //let posx = pos1.x;
         //let posy = pos1.y;
         //console.log("pozicija" + pos1);
-        svg.style.left =  pos + 'px';//element sliding
-          der.style.left =pos + 'px';
-          int.style.left = pos + 'px';
+        svg.style.left = pos + 'px';//element sliding
+        der.style.left = pos + 'px';
+        int.style.left = pos + 'px';
         console.log(svg.getBoundingClientRect().width);
         let width = svg.getBoundingClientRect().width + interval;
         console.log(width);
@@ -195,15 +199,16 @@ function play(event) {
         const y1 = crta.points.getItem(crta.points.length - 2).y;
         const x2 = crta.points.getItem(crta.points.length - 1).x;
         const x1 = crta.points.getItem(crta.points.length - 2).x;
-        tocka_der.y = ((y2 - y1) / (x2 - x1))*10;
+        //tocka_der.y = ((y2 - y1) / (x2 - x1)) * 100;
+        tocka_der.y = ((y2 - y1)*Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)) /((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))) * 100;
         //tocka_der.y = (crta.points.getItem(crta.points.length-1).y-crta.points.getItem(crta.points.length-2).y)/(crta.points.getItem(crta.points.length-1).x-crta.points.getItem(crta.points.length-2).x);
-        tocka_der.x = x1+(x2-x1)/ 2;
-        console.log("derivacija:(" + tocka_der.x+","+ tocka_der.y + ")");
+        tocka_der.x = x1 + (x2 - x1) / 2;
+        console.log("derivacija:(" + tocka_der.x + "," + tocka_der.y + ")");
         deriv.points.appendItem(tocka_der);
         const tocka_int = int.createSVGPoint();
-        tocka_int.y = integ.points.getItem(integ.points.length - 1).y + ((y2 + y1)*(x2-x1)/2)/100;
-        tocka_int.x = x1+(x2-x1)/2;
-        console.log("integracija:(" + tocka_int.x+","+ tocka_int.y + ")");
+        tocka_int.y = integ.points.getItem(integ.points.length - 1).y + ((y2 + y1) * (x2 - x1) / 2) / 100;
+        tocka_int.x = x1 + (x2 - x1) / 2;
+        console.log("integracija:(" + tocka_int.x + "," + tocka_int.y + ")");
         integ.points.appendItem(tocka_int);       //crta.x1.baseVal.Value=pos;
       }
 
@@ -224,4 +229,4 @@ function play(event) {
 
 
 
-export { prikaz, start, vodilja, play };
+export { prikaz, start, vodilja, play, prikaztouchmove };
