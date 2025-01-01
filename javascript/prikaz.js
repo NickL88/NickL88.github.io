@@ -114,6 +114,8 @@ function prikaztouchmove(event) {
 function vodilja(event) {
   if (event.type === 'touchmove') {
     event = event.touches[0];
+    console.log(event);
+    event.currentTarget=event.target;
   }
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
