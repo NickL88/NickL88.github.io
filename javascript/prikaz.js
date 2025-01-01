@@ -88,15 +88,23 @@ var xcoord;
 var ycoord;
 
 function prikaztouchmove(event) {
-const koordinata = document.getElementById("testing");
-const rect = koordinata.getBoundingClientRect();
-//let offsetX=event.clientX - rect.left;
-//let offsetY=event.clientY - rect.top;
-let offsetX=event.touches[0].clientX -rect.left;
-let offsetY=event.touches[0].clientY -rect.top;
-console.log(event);
+  const koordinata = document.getElementById("testing");
+  const svg = document.getElementById("svg");
+  const rect = svg.getBoundingClientRect();
+  let offsetX = event.clientX;
+  let offsetY = event.clientY;
+  let offsetX0 = event.clientX - rect.left;
+  let offsetY0 = event.clientY - rect.top;
+  //let offsetX=event.touches[0].clientX -rect.left;
+  //let offsetY=event.touches[0].clientY -rect.top;
+  //console.log(event);
+  offsetX += 5;
+  offsetY += 5;
+  koordinata.style.left = offsetX + "px";
+  koordinata.style.top = offsetY + "px";
+  console.log("top" + koordinata.style.top);
 
-koordinata.innerText="("+offsetX+','+offsetY+')';
+  koordinata.innerText = "(" + offsetX0 + ',' + offsetY0 + ')';
 
 }
 
@@ -107,12 +115,15 @@ function vodilja(event) {
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
   })) {
+    const svg = document.getElementById("svg");
+    const rect = svg.getBoundingClientRect();
     //const rect = crta.getBoundingClientRect();
     //event.target.style.backgroundColor="green";
-    const svg = document.getElementById("svg");
     const tocka = svg.createSVGPoint();
-    tocka.x = xcoord = event.offsetX;
-    tocka.y = ycoord = event.offsetY;
+    //tocka.x = xcoord = event.offsetX;
+    //tocka.y = ycoord = event.offsetY;
+    tocka.x = xcoord = event.clientX - rect.left;
+    tocka.y = ycoord = event.clientY - rect.top;
     //crta.points.appendItem(tocka);
     //tocka.y -=  svg.getBoundingClientRect().height/2;
     //crta.points += event.offsetX+","+event.offsetY;
@@ -207,7 +218,7 @@ function play(event) {
         const x2 = crta.points.getItem(crta.points.length - 1).x;
         const x1 = crta.points.getItem(crta.points.length - 2).x;
         //tocka_der.y = ((y2 - y1) / (x2 - x1)) * 100;
-        tocka_der.y = ((y2 - y1)*Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)) /((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))) * 100;
+        tocka_der.y = ((y2 - y1) * Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) / ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))) * 100;
         //tocka_der.y = (crta.points.getItem(crta.points.length-1).y-crta.points.getItem(crta.points.length-2).y)/(crta.points.getItem(crta.points.length-1).x-crta.points.getItem(crta.points.length-2).x);
         tocka_der.x = x1 + (x2 - x1) / 2;
         console.log("derivacija:(" + tocka_der.x + "," + tocka_der.y + ")");
