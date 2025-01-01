@@ -88,6 +88,9 @@ var xcoord;
 var ycoord;
 
 function prikaztouchmove(event) {
+  if (event.type === 'touchmove') {
+    event = event.touches[0];
+  }
   const koordinata = document.getElementById("testing");
   const svg = document.getElementById("svg");
   const rect = svg.getBoundingClientRect();
