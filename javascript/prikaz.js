@@ -88,6 +88,9 @@ var xcoord;
 var ycoord;
 
 function prikaztouchmove(event) {
+const koordinata = document.getElementById("testing");
+
+koordinata.innerText="("+event.clientX+','+event.clientY+')';
 
 }
 

@@ -8,4 +8,4 @@ document.addEventListener('DOMContentLoaded',start);
 document.addEventListener('mousemove',vodilja);
 document.addEventListener('touchmove',vodilja);
 document.addEventListener('click',play,true);
-document.addEventListener('touchmove',prikaztouchmove);
+document.addEventListener('mousemove',prikaztouchmove);
