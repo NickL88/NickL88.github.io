@@ -86,6 +86,7 @@ function start() {
 
 var xcoord;
 var ycoord;
+var xcheck;
 
 function prikaztouchmove(event) {
   if (event.type === 'touchmove') {
@@ -98,6 +99,8 @@ function prikaztouchmove(event) {
   let offsetY = event.clientY;
   let offsetX0 = event.clientX - rect.left;
   let offsetY0 = event.clientY - rect.top;
+  offsetY0 -= rect.height / 2;
+  offsetY0 = -offsetY0;
   //let offsetX=event.touches[0].clientX -rect.left;
   //let offsetY=event.touches[0].clientY -rect.top;
   //console.log(event);
@@ -107,7 +110,7 @@ function prikaztouchmove(event) {
   koordinata.style.top = offsetY + "px";
   console.log("top" + koordinata.style.top);
 
-  koordinata.innerText = "(" + offsetX0 + ',' + offsetY0 + ')';
+  koordinata.innerText = "(" + Math.round(offsetX0) + ',' + Math.round(offsetY0) + ')';
 
 }
 
@@ -115,7 +118,7 @@ function vodilja(event) {
   if (event.type === 'touchmove') {
     event = event.touches[0];
     console.log(event);
-    event.currentTarget=event.target;
+    event.currentTarget = event.target;
   }
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
@@ -202,11 +205,15 @@ function play(event) {
           int.style.width = width + 'px';
         const tocka = svg.createSVGPoint();
         //tocka.x = posx + interval;
+        if(xcheck===xcoord){
+          console.log("xcheck");
+          xcoord+=interval}
         tocka.x = xcoord + interval;
         //console.log(tocka.x + "=" + posx0 + pos);
         //tocka.y = posy;
         tocka.y = ycoord;
         console.log("xcoord" + xcoord + "ycoord" + ycoord);
+        console.log("tocka" + tocka.x);
         crta.points.appendItem(tocka);
         tocka.y -= svg.getBoundingClientRect().height / 2;
         //console.log("posx" + posx + "posx0" + posx0);
@@ -233,10 +240,13 @@ function play(event) {
         tocka_int.x = x1 + (x2 - x1) / 2;
         console.log("integracija:(" + tocka_int.x + "," + tocka_int.y + ")");
         integ.points.appendItem(tocka_int);       //crta.x1.baseVal.Value=pos;
+        requestAnimationFrame(frame);
+        xcheck=xcoord;
       }
 
 
-      id = setInterval(frame, 100);
+      //id = setInterval(frame, 100);
+      requestAnimationFrame(frame);
       check = true;
       return;
     }
