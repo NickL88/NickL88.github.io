@@ -9,5 +9,5 @@ document.addEventListener('mousemove',vodilja);
 document.addEventListener('touchmove',vodilja);
 document.addEventListener('click',play,true);
 document.addEventListener('click',play,true);
-//document.addEventListener('mousemove',prikaztouchmove);
-//document.addEventListener('touchmove',prikaztouchmove);
+document.addEventListener('mousemove',prikaztouchmove);
+document.addEventListener('touchmove',prikaztouchmove);

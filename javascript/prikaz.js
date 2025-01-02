@@ -114,7 +114,7 @@ function prikaztouchmove(event) {
 }
 
 function vodilja(event) {
-  console.log(event);
+  //console.log(event);
   if (event.type === 'touchmove') {
     event = event.touches[0];
        const svg = document.getElementById("svg");
@@ -175,12 +175,13 @@ function play(event) {
     }
 
     let start;
-
+    
     function frame(timestamp) {
       if (start === undefined) {
         start = timestamp;
       }
       let elapsed = timestamp - start;
+      if (elapsed > 10) {
       pos = pos - interval;
       svg.style.left = pos + 'px';//element sliding
       der.style.left = pos + 'px';
@@ -207,8 +208,8 @@ function play(event) {
       const y1 = crta.points.getItem(crta.points.length - 2).y;
       const x2 = crta.points.getItem(crta.points.length - 1).x;
       const x1 = crta.points.getItem(crta.points.length - 2).x;
-      //tocka_der.y = ((y2 - y1) / (x2 - x1)) * 100;
-      tocka_der.y = ((y2 - y1) * Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) / ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))) * 100;
+      tocka_der.y = ((y2 - y1) / (x2 - x1)) * 10;
+      //tocka_der.y = ((y2 - y1) * Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) / ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))) * 10;
       tocka_der.x = x1 + (x2 - x1) / 2;
       //console.log("derivacija:(" + tocka_der.x + "," + tocka_der.y + ")");
       deriv.points.appendItem(tocka_der);
@@ -218,10 +219,9 @@ function play(event) {
       //console.log("integracija:(" + tocka_int.x + "," + tocka_int.y + ")");
       integ.points.appendItem(tocka_int);       //crta.x1.baseVal.Value=pos;
       //console.log("lapse"+elapsed);
-      myReq = requestAnimationFrame(frame);
-      if (elapsed > 100) {
         start = timestamp;
       }
+      myReq = requestAnimationFrame(frame);
       xcheck = xcoord;
     }
 
