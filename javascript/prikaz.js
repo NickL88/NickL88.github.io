@@ -122,9 +122,11 @@ function vodilja(event) {
   })) {
     const svg = document.getElementById("svg");
     const rect = svg.getBoundingClientRect();
-    const tocka = svg.createSVGPoint();
-    tocka.x = xcoord = event.clientX - rect.left;
-    tocka.y = ycoord = event.clientY - rect.top;
+    //const tocka = svg.createSVGPoint();
+    //tocka.x = 
+    xcoord = event.clientX - rect.left;
+    //tocka.y = 
+    ycoord = event.clientY - rect.top;
   }
 
 }
@@ -143,7 +145,7 @@ function play(event) {
   if ([...event.currentTarget.querySelectorAll("#svg")].some(function (comp) {
     return comp == event.target;
   })) {
-    check=!check;
+    check = !check;
     console.log("abcd");
     const crta = document.getElementById("crta");
     const svg = document.getElementById("svg");
@@ -151,14 +153,20 @@ function play(event) {
     const int = document.getElementById("int");
     const deriv = document.getElementById("deriv");
     const integ = document.getElementById("integ");
-    const interval = 10;
+    const interval = 1;
     if (!check) {
       cancelAnimationFrame(myReq);
       check = true;
       return;
     }
 
+    let start;
+
     function frame(timestamp) {
+      if (start === undefined) {
+        start = timestamp;
+      }
+      let elapsed = timestamp - start;
       pos = pos - interval;
       svg.style.left = pos + 'px';//element sliding
       der.style.left = pos + 'px';
@@ -195,7 +203,11 @@ function play(event) {
       tocka_int.x = x1 + (x2 - x1) / 2;
       console.log("integracija:(" + tocka_int.x + "," + tocka_int.y + ")");
       integ.points.appendItem(tocka_int);       //crta.x1.baseVal.Value=pos;
+      console.log("lapse"+elapsed);
       myReq = requestAnimationFrame(frame);
+      if (elapsed > 100) {
+        start = timestamp;
+      }
       xcheck = xcoord;
     }
 
